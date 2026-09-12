@@ -1,0 +1,49 @@
+/* CareerCanvas Blog — shared stylesheet, tokens match the main app */
+:root{
+  --ink:#172236; --ink-soft:#4B5566; --paper:#FAF7F1; --paper-raised:#FFFFFF;
+  --line:#E1DACB; --teal:#23695A; --teal-dark:#184A40; --amber:#C68A2E; --plum:#5B4B66;
+  --font-display:'Fraunces', serif; --font-body:'IBM Plex Sans', sans-serif;
+}
+*{box-sizing:border-box;}
+body{margin:0; font-family:var(--font-body); background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased; line-height:1.6;}
+h1,h2,h3{font-family:var(--font-display); line-height:1.2; letter-spacing:-.01em;}
+a{color:var(--teal); text-decoration:none;}
+a:hover{text-decoration:underline;}
+.container{max-width:760px; margin:0 auto; padding:0 24px;}
+.wide-container{max-width:1100px; margin:0 auto; padding:0 24px;}
+
+header.site-header{border-bottom:1px solid var(--line); padding:16px 0; background:var(--paper);}
+.header-row{display:flex; align-items:center; justify-content:space-between; max-width:1100px; margin:0 auto; padding:0 24px; flex-wrap:wrap; gap:10px;}
+.logo{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:1.2rem; color:var(--ink);}
+.logo svg{width:30px;height:30px;}
+nav.blog-nav a{color:var(--ink-soft); font-weight:500; font-size:.92rem; margin-left:18px;}
+nav.blog-nav a:hover{color:var(--ink);}
+
+.blog-hero{padding:48px 0 8px;}
+.blog-hero .eyebrow{color:var(--teal); font-weight:600; font-size:.85rem; margin-bottom:10px;}
+.blog-hero h1{font-size:clamp(1.9rem,4vw,2.6rem); font-weight:600; max-width:18ch;}
+.blog-hero p{color:var(--ink-soft); margin-top:12px; max-width:60ch; font-size:1.05rem;}
+
+.article-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding:32px 0 60px;}
+@media (max-width:720px){.article-grid{grid-template-columns:1fr;}}
+.article-card{background:var(--paper-raised); border:1px solid var(--line); border-radius:10px; padding:22px; display:flex; flex-direction:column;}
+.article-card .tag{font-size:.74rem; font-weight:600; color:var(--amber); margin-bottom:10px;}
+.article-card h2{font-size:1.15rem; font-weight:600; margin-bottom:8px;}
+.article-card p{color:var(--ink-soft); font-size:.92rem; flex:1;}
+.article-card .read-more{margin-top:14px; font-weight:600; font-size:.88rem;}
+
+article.post{padding:44px 0 70px;}
+article.post .eyebrow{color:var(--teal); font-weight:600; font-size:.82rem; margin-bottom:12px;}
+article.post h1{font-size:clamp(1.8rem,4vw,2.5rem); font-weight:600; margin-bottom:14px;}
+article.post .meta{color:var(--ink-soft); font-size:.85rem; margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid var(--line);}
+article.post h2{font-size:1.35rem; margin:32px 0 12px;}
+article.post h3{font-size:1.1rem; margin:24px 0 10px;}
+article.post p{margin-bottom:16px; font-size:1.02rem; color:#2c3547;}
+article.post ul, article.post ol{padding-left:22px; margin-bottom:16px;}
+article.post li{margin-bottom:8px; font-size:1.02rem; color:#2c3547;}
+article.post blockquote{border-left:3px solid var(--amber); padding:4px 0 4px 18px; color:var(--ink-soft); font-style:italic; margin:24px 0;}
+.article-cta{background:var(--paper-raised); border:1px solid var(--line); border-radius:12px; padding:24px; margin-top:40px; text-align:center;}
+.article-cta a.btn{display:inline-block; margin-top:12px; background:var(--teal); color:#fff; padding:11px 22px; border-radius:9px; font-weight:600; text-decoration:none;}
+.article-cta a.btn:hover{background:var(--teal-dark); text-decoration:none;}
+
+footer.blog-footer{border-top:1px solid var(--line); padding:28px 0; text-align:center; color:var(--ink-soft); font-size:.85rem;}
