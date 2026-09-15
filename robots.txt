@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.careercanvas.example/sitemap.xml
+Sitemap: https://careercanvaskit.xyz/sitemap.xml
