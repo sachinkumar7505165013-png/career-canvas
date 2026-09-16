@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="ADeseiRuvifwhfdGgPeYbGgh28GdR32ktr_G5o9cXMg" />
-<title>CareerCanvas — Build a resume that opens doors</title>
-<meta name="description" content="Create professional resumes, ATS-friendly resumes, cover letters and experience letters with AI assistance. No pricing plans. No sign-up required.">
-<meta property="og:title" content="CareerCanvas">
-<meta property="og:description" content="Build professional career documents with smart AI assistance and beautiful templates.">
+<title>CareerCanvas (Career Canvas Kit) — Free Resume Builder, ATS Checker & Experience Letter Generator</title>
+<meta name="description" content="CareerCanvas is a free resume builder with free resume templates, an AI cover letter generator, a free experience letter generator, and a free ATS checker — no sign-up, no pricing plans.">
+<meta property="og:title" content="CareerCanvas — Free Resume Builder, ATS Checker & Experience Letter Generator">
+<meta property="og:description" content="Free resume templates, an AI-assisted resume builder, cover letter generator, experience letter generator and ATS checker — all free, no account required.">
+<meta name="keywords" content="free resume builder, free resume templates, free experience letter generator, ats checker, ats resume checker, cover letter generator, career canvas kit, careercanvas">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -848,8 +849,8 @@ function renderBuilderPage(opts={}){
   const root = $('#main-root');
   root.innerHTML = `
     <div class="page-hero container">
-      <h1>Resume Builder</h1>
-      <p>Work through each folder tab, then preview and download. Your progress saves automatically to this browser.</p>
+      <h1>Free Resume Builder</h1>
+      <p>Work through each folder tab, choose from free resume templates, then preview and download — completely free.</p>
     </div>
     <div class="builder-wrap">
       <div class="builder-form-pane">
@@ -1395,9 +1396,9 @@ function renderHomePage(){
   <section class="hero container">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow-tag"><span class="dot"></span> No pricing plans. No premium locks.</div>
+        <div class="eyebrow-tag"><span class="dot"></span> Free resume builder. Free resume templates. No pricing plans.</div>
         <h1>Build a Resume That Opens Doors</h1>
-        <p class="sub">Create professional resumes, cover letters, and career documents with smart AI assistance and beautiful templates.</p>
+        <p class="sub">A free resume builder, AI cover letter generator, free experience letter generator and ATS checker — free resume templates and AI assistance, no sign-up required.</p>
         <div class="hero-actions">
           <button class="btn btn-primary" data-nav="builder">Create My Resume</button>
           <button class="btn btn-outline" data-nav="builder" data-step="templates">Explore Templates</button>
@@ -1416,11 +1417,11 @@ function renderHomePage(){
   <section class="section container">
     <div class="section-head"><h2>Everything you need, in one place</h2><p>From your first draft to a polished, downloadable document.</p></div>
     <div class="feature-grid">
-      ${featureCard('🧠','AI Resume Builder','Generate and refine career objectives, bullet points and achievements as you write.')}
-      ${featureCard('🗂️','Professional Templates','Twenty layouts across professional, colorful, photo and ATS-friendly styles.')}
-      ${featureCard('✅','ATS Resume Checker','Score your resume against a job description and see exactly what to fix.')}
+      ${featureCard('🧠','Free AI Resume Builder','Generate and refine career objectives, bullet points and achievements as you write — completely free.')}
+      ${featureCard('🗂️','Free Resume Templates','Twenty free resume templates across professional, colorful, photo and ATS-friendly styles.')}
+      ${featureCard('✅','Free ATS Checker','Score your resume against a job description with our free ATS resume checker and see exactly what to fix.')}
       ${featureCard('✍️','AI Cover Letter Generator','Tailored letters in the tone you choose, ready to edit and send.')}
-      ${featureCard('📄','Experience Letter Generator','With or without a company letterhead, formatted for formal use.')}
+      ${featureCard('📄','Free Experience Letter Generator','With or without a company letterhead, formatted for formal use — free experience letter maker.')}
       ${featureCard('⬇️','PDF Download','Download or print documents that keep your exact formatting.')}
       ${featureCard('👤','Guest Mode','Start building immediately — no account required.')}
       ${featureCard('🚫','No Pricing Plans','Every tool on CareerCanvas is available without a subscription.')}
@@ -1615,7 +1616,7 @@ function renderExpLetterPage(){
   const root = $('#main-root');
   const e = expLetter;
   root.innerHTML = `
-    <div class="page-hero container"><h1>Experience Letter Generator</h1><p>Create a formal experience letter, with or without a company letterhead.</p></div>
+    <div class="page-hero container"><h1>Free Experience Letter Generator</h1><p>Create a formal experience letter for free, with or without a company letterhead.</p></div>
     <div class="container section" style="padding-top:24px;">
       <div class="notice-box">Use this tool only for legitimate employment documentation. Do not create false or misleading employment records.</div>
       <div class="checkbox-row" style="margin-bottom:20px;"><input type="checkbox" id="el-letterhead" ${e.hasLetterhead?'checked':''}> Include company letterhead</div>
@@ -1786,7 +1787,7 @@ let atsState = {resumeText:'', jobDescText:'', results:null};
 function renderATSPage(){
   const root = $('#main-root');
   root.innerHTML = `
-    <div class="page-hero container"><h1>ATS Resume Checker</h1><p>Paste your resume text and a job description to see an estimated ATS compatibility score.</p></div>
+    <div class="page-hero container"><h1>Free ATS Resume Checker</h1><p>Paste your resume text and a job description to see an estimated ATS compatibility score — completely free.</p></div>
     <div class="container section" style="padding-top:20px;">
       <div class="notice-box">ATS scores are estimates and may vary between employers and applicant tracking systems.</div>
       <div class="two-col-page">
