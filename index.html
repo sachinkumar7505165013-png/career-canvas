@@ -258,12 +258,66 @@ html.dark .ai-btn{background:#3A2E12; color:#F0D28A; border-color:#5C4A1E;}
 .res-twocol{display:grid; grid-template-columns:230px 1fr; gap:0;}
 .res-sidebar{padding-right:22px; border-right:1px solid #e2e2e2;}
 .res-main{padding-left:22px;}
-.res-photo{width:96px;height:96px;background:#eee;object-fit:cover; margin-bottom:14px;}
+.res-photo{width:120px;height:120px;background:#eee;object-fit:cover; margin-bottom:14px;}
 .res-photo.circle{border-radius:50%;} .res-photo.square{border-radius:6px;}
 .res-skill-tag{display:inline-block; font-size:.76rem; padding:3px 9px; border-radius:12px; margin:2px 4px 2px 0;}
 .res-ats .res-h2{border-bottom:1px solid #000; text-transform:none; letter-spacing:0; font-size:.95rem;}
 .res-ats{font-family:'IBM Plex Mono', monospace;}
 .res-ats .res-name{font-family:'IBM Plex Mono', monospace;}
+
+/* Elegant Centered — serif, centered header with a double rule */
+.res-centered-header{text-align:center; padding-bottom:14px; margin-bottom:6px; border-bottom:2px double #ccc;}
+.res-centered-header .res-name{font-family:'Fraunces',serif; letter-spacing:.02em;}
+.res-centered-header .res-contact{justify-content:center;}
+
+/* Bold Banner — full-width colored header band */
+.res-banner-head{margin:-1px -1px 20px -1px; padding:24px 26px; border-radius:3px;}
+.res-banner-head .res-name{color:#fff !important; margin:0;}
+.res-banner-head .res-title{color:rgba(255,255,255,.92) !important;}
+.res-banner-head .res-contact{color:rgba(255,255,255,.85) !important;}
+
+/* Timeline Career — vertical timeline for experience */
+.res-timeline{position:relative; padding-left:20px; margin-top:2px;}
+.res-timeline::before{content:'';position:absolute; left:4px; top:4px; bottom:4px; width:2px; background:#e2e2e2;}
+.res-tl-entry{position:relative; margin-bottom:14px;}
+.res-tl-entry::before{content:'';position:absolute; left:-20px; top:4px; width:9px; height:9px; border-radius:50%; background:currentColor;}
+
+/* Skills Compact — pill row + tighter rule-style headings */
+.res-pill-row{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
+.res-pill{font-size:.72rem; padding:3px 11px; border-radius:20px;}
+.res-compact .res-h2{border-bottom:none; border-top:2px solid currentColor; padding-top:6px; padding-bottom:0; margin-bottom:8px;}
+
+/* Dark Sidebar — filled-color sidebar with light text, sits opposite res-sidebar */
+.res-twocol-dark{display:grid; grid-template-columns:210px 1fr; gap:0;}
+.res-sidebar-dark{padding:22px 20px; color:#fff; border-radius:2px 0 0 2px;}
+.res-sidebar-dark .res-name, .res-sidebar-dark .res-title{color:#fff !important;}
+.res-sidebar-dark .res-h2{color:#fff !important; border-bottom-color:rgba(255,255,255,.35) !important;}
+.res-sidebar-dark .res-body-text{color:rgba(255,255,255,.85) !important;}
+.res-main-dark{padding:22px 4px 22px 24px;}
+
+/* Boxed Sections — each section in its own bordered card */
+.res-boxed .res-section{border:1px solid #e6e6e6; border-radius:8px; padding:13px 16px; margin-bottom:12px; background:#fafafa;}
+.res-boxed .res-h2{border-bottom:none; margin-bottom:7px; padding-bottom:0;}
+
+/* Two-Tone Header — split header bar, colored block + light info block */
+.res-split-header{display:grid; grid-template-columns:1.1fr 1fr; gap:0; margin:-1px -1px 20px -1px; overflow:hidden; border-radius:2px;}
+.res-split-header .res-split-left{padding:22px 24px; color:#fff;}
+.res-split-header .res-split-left .res-name{color:#fff !important; margin:0;}
+.res-split-header .res-split-left .res-title{color:rgba(255,255,255,.9) !important;}
+.res-split-header .res-split-right{padding:22px 20px; background:#f4f4f4; display:flex; flex-direction:column; justify-content:center; gap:3px; font-size:.78rem; line-height:1.6;}
+
+/* Icon Contact Sidebar — monogram badge + icon-prefixed contact rows */
+.res-avatar-badge{width:66px; height:66px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-weight:700; color:#fff; margin-bottom:10px;}
+.res-icon-row{display:flex; align-items:flex-start; gap:7px; margin-bottom:5px; font-size:.78rem; word-break:break-word;}
+.res-icon-row .ic{flex:0 0 16px; text-align:center; opacity:.75;}
+
+/* Minimalist Rule — no fills, just a rule under the name + spaced-out caps headings */
+.res-minimal-rule .res-name{border-left:4px solid currentColor; padding-left:12px;}
+.res-minimal-rule .res-h2{border-bottom:1px solid #ddd; text-transform:uppercase; letter-spacing:.12em; font-size:.72rem; font-weight:600; padding-bottom:4px;}
+
+/* Skills Strip — full-width skills band under the header, two-column body below */
+.res-skills-strip{display:flex; flex-wrap:wrap; gap:6px; padding:10px 0 14px; margin-bottom:8px; border-bottom:1px solid #eee;}
+.res-skills-strip-body{display:grid; grid-template-columns:1fr 1.7fr; gap:24px; align-items:start;}
 
 @media print{
   body *{visibility:hidden;}
@@ -566,29 +620,28 @@ $('#mobile-close').onclick = () => $('#mobile-menu').classList.add('hidden');
    TEMPLATE DEFINITIONS
    ================================================================ */
 const TEMPLATES = [
+  // Professional — classic top-down layout, one centered/serif variant, one ultra-plain rule-based variant
   {id:'classic-professional', name:'Classic Professional', category:'Professional', layout:'single', accent:'#172236', photo:false, ats:false},
   {id:'modern-executive', name:'Modern Executive', category:'Professional', layout:'twocol', accent:'#172236', photo:false, ats:false},
-  {id:'corporate-clean', name:'Corporate Clean', category:'Professional', layout:'twocol', accent:'#23695A', photo:false, ats:false},
-  {id:'elegant-minimal', name:'Elegant Minimal', category:'Professional', layout:'single', accent:'#5B4B66', photo:false, ats:false},
-  {id:'twocol-professional', name:'Two-Column Professional', category:'Professional', layout:'twocol', accent:'#172236', photo:false, ats:false},
+  {id:'elegant-centered', name:'Elegant Centered', category:'Professional', layout:'single', centered:true, accent:'#5B4B66', photo:false, ats:false},
+  {id:'minimal-rule', name:'Minimalist Rule', category:'Professional', layout:'minimal-rule', accent:'#3F3A36', photo:false, ats:false},
 
-  {id:'blue-accent', name:'Blue Accent', category:'Colorful', layout:'single', accent:'#2A5CA8', photo:false, ats:false},
-  {id:'green-modern', name:'Green Modern', category:'Colorful', layout:'single', accent:'#2F7D4F', photo:false, ats:false},
-  {id:'purple-creative', name:'Purple Creative', category:'Colorful', layout:'twocol', accent:'#7A4FA0', photo:false, ats:false},
-  {id:'orange-professional', name:'Orange Professional', category:'Colorful', layout:'single', accent:'#C1652C', photo:false, ats:false},
-  {id:'teal-contemporary', name:'Teal Contemporary', category:'Colorful', layout:'single', accent:'#1A8577', photo:false, ats:false},
+  // Modern — genuinely different page structures, not just recolors
+  {id:'bold-banner', name:'Bold Banner', category:'Modern', layout:'banner', accent:'#8E2A46', photo:false, ats:false},
+  {id:'timeline-career', name:'Timeline Career', category:'Modern', layout:'timeline', accent:'#1F6F5C', photo:false, ats:false},
+  {id:'skills-compact', name:'Skills Compact', category:'Modern', layout:'compact', accent:'#B4530A', photo:false, ats:false},
+  {id:'boxed-sections', name:'Boxed Sections', category:'Modern', layout:'boxed', accent:'#0E6E55', photo:false, ats:false},
+  {id:'two-tone-header', name:'Two-Tone Header', category:'Modern', layout:'split-header', accent:'#1B3B6F', photo:false, ats:false},
+  {id:'skills-strip', name:'Skills Strip', category:'Modern', layout:'skills-strip', accent:'#0B5566', photo:false, ats:false},
 
+  // Photo — one of each distinct structure that supports a photo
   {id:'professional-photo', name:'Professional Photo', category:'Photo', layout:'single', accent:'#172236', photo:true, ats:false},
   {id:'modern-photo', name:'Modern Photo', category:'Photo', layout:'twocol', accent:'#23695A', photo:true, ats:false},
-  {id:'creative-photo', name:'Creative Photo', category:'Photo', layout:'twocol', accent:'#7A4FA0', photo:true, ats:false},
-  {id:'elegant-photo', name:'Elegant Photo', category:'Photo', layout:'single', accent:'#5B4B66', photo:true, ats:false},
-  {id:'twocol-photo', name:'Two-Column Photo', category:'Photo', layout:'twocol', accent:'#172236', photo:true, ats:false},
+  {id:'dark-sidebar-photo', name:'Dark Sidebar Photo', category:'Photo', layout:'sidebar-dark', accent:'#3A2E6E', photo:true, ats:false},
+  {id:'icon-contact-photo', name:'Icon Contact', category:'Photo', layout:'icon-sidebar', accent:'#6B3F1D', photo:true, ats:false},
 
+  // ATS-Friendly — plain, parser-safe formatting
   {id:'ats-classic', name:'ATS Classic', category:'ATS-Friendly', layout:'single', accent:'#000000', photo:false, ats:true},
-  {id:'ats-modern', name:'ATS Modern', category:'ATS-Friendly', layout:'single', accent:'#111111', photo:false, ats:true},
-  {id:'ats-simple', name:'ATS Simple', category:'ATS-Friendly', layout:'single', accent:'#000000', photo:false, ats:true},
-  {id:'ats-graduate', name:'ATS Graduate', category:'ATS-Friendly', layout:'single', accent:'#000000', photo:false, ats:true, order:'education-first'},
-  {id:'ats-experienced', name:'ATS Experienced', category:'ATS-Friendly', layout:'single', accent:'#000000', photo:false, ats:true, order:'experience-first'},
 ];
 function getTemplate(id){ return TEMPLATES.find(t=>t.id===id) || TEMPLATES[0]; }
 
@@ -612,7 +665,47 @@ function blankResume(){
     updatedAt: Date.now()
   };
 }
-let resume = loadLocal('cc_resume_draft', null) || blankResume();
+function demoResume(){
+  const r = blankResume();
+  r.name = 'Demo Resume';
+  r.personal = {
+    fullName:'Aisha Sharma', title:'Marketing Coordinator',
+    email:'aisha.sharma@email.com', phone:'+91 98765 43210',
+    address:'', city:'Bengaluru', state:'Karnataka', country:'India', pincode:'',
+    linkedin:'linkedin.com/in/aishasharma', portfolio:'aishasharma.com', github:''
+  };
+  r.objective = 'Detail-oriented Marketing Coordinator with 3+ years of experience planning campaigns, managing social channels and driving measurable growth in engagement and leads. Looking to bring a data-driven, collaborative approach to a fast-growing team.';
+  r.education = [
+    {degree:'B.Com', course:'Marketing', school:'Bengaluru University', board:'', score:'8.2 CGPA', year:'2018 – 2021', location:'Bengaluru'}
+  ];
+  r.experience = [
+    {title:'Marketing Coordinator', company:'Brightwave Media', type:'Full-time', location:'Bengaluru', start:'Jun 2022', end:'', current:true,
+      responsibilities:'Planned and executed multi-channel campaigns across email, social and paid search.\nManaged content calendar and coordinated with design and sales teams.',
+      achievements:'Increased email open rates by 22% and grew Instagram following by 40% in one year.'},
+    {title:'Marketing Intern', company:'Northlane Digital', type:'Internship', location:'Bengaluru', start:'Jan 2022', end:'May 2022', current:false,
+      responsibilities:'Assisted with social media scheduling, blog research and basic performance reporting.',
+      achievements:''}
+  ];
+  r.skills = {
+    technical:['Google Analytics','SEO','Content Strategy','Email Marketing'],
+    soft:['Communication','Teamwork','Time Management'],
+    languages:['English','Hindi'],
+    tools:['Excel','Canva','HubSpot']
+  };
+  r.additional = {
+    projects:[{title:'College Fest Promotion Campaign', description:'Led a student team to plan and promote a college fest, growing pre-event sign-ups by 35% through a coordinated social media push.'}],
+    certifications:[{title:'Google Analytics Certified', issuer:'Google', year:'2023'}],
+    internships:[],
+    achievements:[{title:'Employee of the Quarter, Q3 2023'},{title:'Ran a 5K city marathon fundraiser, raised ₹40,000 for a local school'}],
+    awards:[], hobbies:['Photography','Travel blogging','Badminton'], strengths:['Adaptable','Organized','Creative problem solver'],
+    references:[], custom:[]
+  };
+  r.personalDetails = {fatherName:'Rajesh Sharma', motherName:'Sunita Sharma', dob:'14 Mar 1999', gender:'Female', maritalStatus:'Single', nationality:'Indian', religion:'', passport:'', drivingLicense:''};
+  r.declaration = {enabled:true, text:"I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.", align:'left'};
+  r.closing = {date:'21 Sep 2026', place:'Bengaluru', name:'Aisha Sharma', dateLeft:true, showSignatureUpload:false, signatureImage:null, digitalSignatureText:''};
+  return r;
+}
+let resume = loadLocal('cc_resume_draft', null) || demoResume();
 let builderStep = 'templates';
 let previewZoom = 0.62;
 
@@ -670,6 +763,10 @@ function accentOf(r){ return r.accentOverride || getTemplate(r.templateId).accen
 
 function renderSkillTags(list, accent){
   return list.map(s=>`<span class="res-skill-tag" style="background:${accent}18; color:${accent};">${esc(s)}</span>`).join(' ');
+}
+/* Same tag markup, but light-on-dark for the Dark Sidebar template. */
+function renderSkillTagsLight(list){
+  return list.map(s=>`<span class="res-skill-tag" style="background:rgba(255,255,255,.16); color:#fff;">${esc(s)}</span>`).join(' ');
 }
 
 function buildResumeHTML(r){
@@ -790,6 +887,177 @@ function buildResumeHTML(r){
     </div>`;
   }
 
+  // Dark Sidebar — a filled-color sidebar with light text, opposite the
+  // light "res-sidebar" twocol above; a genuinely different look, not a recolor.
+  if(tpl.layout==='sidebar-dark'){
+    const darkSkillBlocks = [];
+    if(r.skills.technical.length) darkSkillBlocks.push(`<div><strong style="font-size:.8rem;">Technical:</strong><br>${renderSkillTagsLight(r.skills.technical)}</div>`);
+    if(r.skills.soft.length) darkSkillBlocks.push(`<div style="margin-top:6px;"><strong style="font-size:.8rem;">Soft Skills:</strong><br>${renderSkillTagsLight(r.skills.soft)}</div>`);
+    if(r.skills.languages.length) darkSkillBlocks.push(`<div style="margin-top:6px;"><strong style="font-size:.8rem;">Languages:</strong><br>${renderSkillTagsLight(r.skills.languages)}</div>`);
+    if(r.skills.tools.length) darkSkillBlocks.push(`<div style="margin-top:6px;"><strong style="font-size:.8rem;">Tools:</strong><br>${renderSkillTagsLight(r.skills.tools)}</div>`);
+    const darkHobbies = (r.sectionsVisible.hobbies||r.sectionsVisible.strengths) && hobbiesHTML ? hobbiesHTML : '';
+    return `<div class="${isAts?'res-ats':''}">
+      <div class="res-twocol-dark">
+        <div class="res-sidebar-dark" style="background:${isAts?'#000':accent};">
+          ${(tpl.photo && r.photo) ? `<img class="res-photo ${r.photoShape}" src="${r.photo}" style="border:3px solid rgba(255,255,255,.4);">` : ''}
+          <div class="res-name" style="font-size:1.3rem;">${esc(p.fullName||'Your Name')}</div>
+          <div class="res-title" style="font-size:.82rem;">${esc(p.title||'Professional Title')}</div>
+          <div class="res-body-text" style="margin-top:12px; font-size:.76rem;">${contactBits.map(esc).join('<br>')}</div>
+          ${darkSkillBlocks.length?`<div class="res-section"><div class="res-h2" style="font-size:.74rem;">Skills</div>${darkSkillBlocks.join('')}</div>`:''}
+          ${darkHobbies}
+        </div>
+        <div class="res-main-dark">
+          ${sectionsHTML.objective}${sectionsHTML.education}${sectionsHTML.experience}${sectionsHTML.projects}${sectionsHTML.certifications}${sectionsHTML.internships}${sectionsHTML.achievements}${sectionsHTML.awards}${sectionsHTML.references}${sectionsHTML.custom}${sectionsHTML.personalDetails}${sectionsHTML.declaration}
+          ${closingHTML}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // Bold Banner — full-width colored header band instead of a plain header.
+  if(tpl.layout==='banner'){
+    const bannerHeaderBlock = `
+      <div class="res-name">${esc(p.fullName||'Your Name')}</div>
+      <div class="res-title">${esc(p.title||'Professional Title')}</div>
+      <div class="res-contact">${contactBits.map(esc).join(' &nbsp;·&nbsp; ')}</div>`;
+    return `<div class="${isAts?'res-ats':''}">
+      <div class="res-banner-head" style="background:${isAts?'#000':accent};">
+        ${(tpl.photo && r.photo) ? `<div style="display:flex; gap:16px; align-items:center;"><img class="res-photo ${r.photoShape}" src="${r.photo}" style="margin-bottom:0; border:3px solid rgba(255,255,255,.45);"><div>${bannerHeaderBlock}</div></div>` : bannerHeaderBlock}
+      </div>
+      ${mainSectionsHTML}
+      ${closingHTML}
+    </div>`;
+  }
+
+  // Timeline Career — experience rendered along a vertical timeline.
+  if(tpl.layout==='timeline'){
+    const timelineExperienceHTML = (r.sectionsVisible.experience && r.experience.length) ? `
+      <div class="res-section"><div class="res-h2" style="color:${isAts?'#000':accent}">Work Experience</div>
+      <div class="res-timeline" style="color:${isAts?'#000':accent};">
+      ${r.experience.map(ex=>`
+        <div class="res-tl-entry">
+          <div class="res-entry-top"><span>${esc(ex.title)}${ex.company?' · '+esc(ex.company):''}</span><span>${esc(ex.start||'')} – ${ex.current?'Present':esc(ex.end||'')}</span></div>
+          <div class="res-entry-sub">${[ex.type, ex.location].filter(Boolean).map(esc).join(' · ')}</div>
+          ${ex.responsibilities?`<div class="res-body-text" style="margin-top:5px;">${esc(ex.responsibilities)}</div>`:''}
+          ${ex.achievements?`<div class="res-body-text" style="margin-top:4px;"><em>${esc(ex.achievements)}</em></div>`:''}
+        </div>`).join('')}
+      </div></div>` : '';
+    const timelineBlockMap = {...blockMap, experience: timelineExperienceHTML};
+    const timelineMainHTML = order.map(k=>timelineBlockMap[k]||'').join('');
+    return `<div class="${isAts?'res-ats':''}">
+      ${(tpl.photo && r.photo) ? `<div style="display:flex; gap:18px; align-items:center;"><img class="res-photo ${r.photoShape}" src="${r.photo}"><div>${headerBlock}</div></div>` : headerBlock}
+      ${timelineMainHTML}
+      ${closingHTML}
+    </div>`;
+  }
+
+  // Skills Compact — skills shown as pill badges right under the header,
+  // with plain rule-style section headings instead of underlines.
+  if(tpl.layout==='compact'){
+    const pillSource = [...r.skills.technical, ...r.skills.tools].slice(0,12);
+    const pillRow = pillSource.length ? `<div class="res-pill-row">${pillSource.map(s=>`<span class="res-pill" style="background:${(isAts?'#000':accent)}14; color:${isAts?'#000':accent};">${esc(s)}</span>`).join('')}</div>` : '';
+    return `<div class="${isAts?'res-ats':''} res-compact">
+      ${(tpl.photo && r.photo) ? `<div style="display:flex; gap:18px; align-items:center;"><img class="res-photo ${r.photoShape}" src="${r.photo}"><div>${headerBlock}</div></div>` : headerBlock}
+      ${pillRow}
+      ${mainSectionsHTML}
+      ${closingHTML}
+    </div>`;
+  }
+
+  // Boxed Sections — every section sits in its own bordered/shaded card.
+  if(tpl.layout==='boxed'){
+    return `<div class="${isAts?'res-ats':''} res-boxed">
+      ${(tpl.photo && r.photo) ? `<div style="display:flex; gap:18px; align-items:center;"><img class="res-photo ${r.photoShape}" src="${r.photo}"><div>${headerBlock}</div></div>` : headerBlock}
+      ${mainSectionsHTML}
+      ${closingHTML}
+    </div>`;
+  }
+
+  // Two-Tone Header — a colored name block sits beside a light contact block,
+  // side by side, above a plain single-column body.
+  if(tpl.layout==='split-header'){
+    const rightRows = contactBits.map(b=>`<div>${esc(b)}</div>`).join('');
+    return `<div class="${isAts?'res-ats':''}">
+      <div class="res-split-header">
+        <div class="res-split-left" style="background:${isAts?'#000':accent};">
+          ${(tpl.photo && r.photo) ? `<img class="res-photo ${r.photoShape}" src="${r.photo}" style="border:3px solid rgba(255,255,255,.45); margin-bottom:10px;">` : ''}
+          <div class="res-name">${esc(p.fullName||'Your Name')}</div>
+          <div class="res-title">${esc(p.title||'Professional Title')}</div>
+        </div>
+        <div class="res-split-right">${rightRows}</div>
+      </div>
+      ${mainSectionsHTML}
+      ${closingHTML}
+    </div>`;
+  }
+
+  // Icon Contact — sidebar with a monogram badge (or photo) and icon-prefixed
+  // contact rows, on a very light tinted sidebar background.
+  if(tpl.layout==='icon-sidebar'){
+    const initials = (p.fullName||'Y N').trim().split(/\s+/).map(w=>w[0]).filter(Boolean).slice(0,2).join('').toUpperCase() || 'YN';
+    const iconRows = [
+      p.email && ['✉', p.email], p.phone && ['☎', p.phone],
+      [p.city,p.state,p.country].filter(Boolean).join(', ') && ['⌂', [p.city,p.state,p.country].filter(Boolean).join(', ')],
+      p.linkedin && ['in', p.linkedin], p.portfolio && ['🔗', p.portfolio], p.github && ['gh', p.github]
+    ].filter(Boolean);
+    return `<div class="${isAts?'res-ats':''}">
+      <div class="res-twocol">
+        <div class="res-sidebar" style="background:${(isAts?'#000':accent)}0d;">
+          ${(tpl.photo && r.photo) ? `<img class="res-photo ${r.photoShape}" src="${r.photo}">` : `<div class="res-avatar-badge" style="background:${isAts?'#000':accent};">${esc(initials)}</div>`}
+          <div class="res-name" style="font-size:1.3rem; color:${isAts?'#000':accent};">${esc(p.fullName||'Your Name')}</div>
+          <div class="res-title" style="font-size:.82rem;">${esc(p.title||'Professional Title')}</div>
+          <div style="margin-top:12px;">${iconRows.map(([ic,val])=>`<div class="res-icon-row"><span class="ic">${ic}</span><span>${esc(val)}</span></div>`).join('')}</div>
+          ${skillBlocks.length?`<div class="res-section"><div class="res-h2" style="color:${isAts?'#000':accent}; font-size:.76rem;">Skills</div>${skillBlocks.join('')}</div>`:''}
+          ${hobbiesHTML}
+        </div>
+        <div class="res-main">
+          ${sectionsHTML.objective}${sectionsHTML.education}${sectionsHTML.experience}${sectionsHTML.projects}${sectionsHTML.certifications}${sectionsHTML.internships}${sectionsHTML.achievements}${sectionsHTML.awards}${sectionsHTML.references}${sectionsHTML.custom}${sectionsHTML.personalDetails}${sectionsHTML.declaration}
+          ${closingHTML}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // Minimalist Rule — no color fills anywhere; just a rule beside the name
+  // and small-caps, letter-spaced section headings.
+  if(tpl.layout==='minimal-rule'){
+    return `<div class="${isAts?'res-ats':''} res-minimal-rule" style="color:${isAts?'#000':accent};">
+      ${(tpl.photo && r.photo) ? `<div style="display:flex; gap:18px; align-items:center;"><img class="res-photo ${r.photoShape}" src="${r.photo}"><div>${headerBlock}</div></div>` : headerBlock}
+      ${mainSectionsHTML}
+      ${closingHTML}
+    </div>`;
+  }
+
+  // Skills Strip — a full-width skills band right under the header, then a
+  // two-column body (education/certs narrow left, everything else wide right).
+  if(tpl.layout==='skills-strip'){
+    const stripSkills = [...r.skills.technical, ...r.skills.tools, ...r.skills.soft].slice(0,14);
+    const stripHTML = stripSkills.length ? `<div class="res-skills-strip">${stripSkills.map(s=>`<span class="res-pill" style="background:${(isAts?'#000':accent)}14; color:${isAts?'#000':accent};">${esc(s)}</span>`).join('')}</div>` : '';
+    const leftCol = `${sectionsHTML.education}${sectionsHTML.certifications}${sectionsHTML.personalDetails}`;
+    const rightCol = `${sectionsHTML.objective}${sectionsHTML.experience}${sectionsHTML.projects}${sectionsHTML.internships}${sectionsHTML.achievements}${sectionsHTML.awards}${sectionsHTML.references}${sectionsHTML.custom}${sectionsHTML.declaration}`;
+    return `<div class="${isAts?'res-ats':''}">
+      ${headerBlock}
+      ${stripHTML}
+      <div class="res-skills-strip-body">
+        <div>${leftCol}</div>
+        <div>${rightCol}${closingHTML}</div>
+      </div>
+    </div>`;
+  }
+
+  // Elegant Centered — a serif, center-aligned header on top of the
+  // otherwise-classic single column layout.
+  if(tpl.centered){
+    return `<div class="${isAts?'res-ats':''}">
+      <div class="res-centered-header">
+        ${(tpl.photo && r.photo) ? `<img class="res-photo ${r.photoShape}" src="${r.photo}" style="margin:0 auto 12px;">` : ''}
+        ${headerBlock}
+      </div>
+      ${mainSectionsHTML}
+      ${closingHTML}
+    </div>`;
+  }
+
   return `<div class="${isAts?'res-ats':''}">
     ${(tpl.photo && r.photo) ? `<div style="display:flex; gap:18px; align-items:center;"><img class="res-photo ${r.photoShape}" src="${r.photo}">
       <div>${headerBlock}</div></div>` : headerBlock}
@@ -798,6 +1066,25 @@ function buildResumeHTML(r){
   </div>`;
 }
 
+/* Shrinks font-size / line-spacing / margin (visually only, does not touch
+   the user's saved preferences) until the rendered resume fits a single
+   A4 page, so templates never silently spill onto a second sheet. */
+const A4_PAGE_HEIGHT_PX = 1123;
+function fitResumeToOnePage(holder){
+  const minFontSize = 10.5, minLineSpacing = 1.15, minMargin = 24;
+  let fs = resume.fontSize, ls = resume.lineSpacing, mg = resume.margin;
+  let guard = 0;
+  while(holder.scrollHeight > A4_PAGE_HEIGHT_PX && guard < 60){
+    guard++;
+    if(fs > minFontSize){ fs = Math.max(minFontSize, fs - 0.4); }
+    else if(ls > minLineSpacing){ ls = Math.max(minLineSpacing, ls - 0.04); }
+    else if(mg > minMargin){ mg = Math.max(minMargin, mg - 2); }
+    else break;
+    holder.style.fontSize = fs.toFixed(1)+'px';
+    holder.style.lineHeight = ls.toFixed(2);
+    holder.style.padding = mg+'px';
+  }
+}
 function renderResumePreviewNow(){
   const holder = $('#resume-a4');
   if(!holder) return;
@@ -806,6 +1093,7 @@ function renderResumePreviewNow(){
   holder.style.lineHeight = resume.lineSpacing;
   holder.style.padding = resume.margin+'px';
   holder.innerHTML = buildResumeHTML(resume);
+  fitResumeToOnePage(holder);
   const zoomHolder = $('#a4-zoom-wrap');
   if(zoomHolder) zoomHolder.style.transform = `scale(${previewZoom})`;
 }
@@ -943,22 +1231,86 @@ function printElement(id){
   setTimeout(()=>clone.remove(), 500);
 }
 
+/* PDF page margin, in millimetres, applied on every side of every page
+   (including continuation pages, so a second page never starts flush
+   against the top edge). */
+const PDF_MARGIN_MM = 10;
+function mmToPt(mm){ return mm * 72 / 25.4; }
+
+/* Looks for a horizontal band of near-white pixels close to idealY, within
+   [minY, idealY], and returns its y — so a page break can be nudged onto a
+   gap between text lines instead of slicing straight through a line. Falls
+   back to idealY untouched if no clean gap is found nearby. */
+function findSafeBreakY(canvas, ctx, idealY, minY){
+  const width = canvas.width;
+  const top = Math.max(0, Math.floor(minY));
+  const height = Math.ceil(idealY) - top;
+  if(height <= 0) return idealY;
+  let block;
+  try{ block = ctx.getImageData(0, top, width, height); }
+  catch(e){ return idealY; } // e.g. a tainted canvas — fall back to the plain cut
+  const data = block.data;
+  for(let row = height - 1; row >= 0; row--){
+    let blank = true;
+    const rowStart = row * width * 4;
+    for(let x = 0; x < width; x += 6){
+      const idx = rowStart + x*4;
+      if(data[idx] < 246 || data[idx+1] < 246 || data[idx+2] < 246){ blank = false; break; }
+    }
+    if(blank) return top + row;
+  }
+  return idealY;
+}
+
 function savePdfFromCanvas(canvas, filename){
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF('p','pt','a4');
+  const marginPt = mmToPt(PDF_MARGIN_MM);
   const pageWidth = pdf.internal.pageSize.getWidth();
   const pageHeight = pdf.internal.pageSize.getHeight();
-  const imgW = pageWidth;
-  const imgH = canvas.height * (imgW/canvas.width);
-  const imgData = canvas.toDataURL('image/png');
-  let heightLeft = imgH, position = 0;
-  pdf.addImage(imgData, 'PNG', 0, position, imgW, imgH, undefined, 'FAST');
-  heightLeft -= pageHeight;
-  while(heightLeft > 1){
-    position = -(imgH - heightLeft);
-    pdf.addPage();
-    pdf.addImage(imgData, 'PNG', 0, position, imgW, imgH, undefined, 'FAST');
-    heightLeft -= pageHeight;
+  const usableWidth = pageWidth - marginPt*2;
+  const usableHeight = pageHeight - marginPt*2;
+
+  // Scale factor from source canvas pixels to PDF points, based on the
+  // usable (margin-inset) width.
+  const scale = usableWidth / canvas.width;
+  // How many canvas pixels of content fit within one page's usable height.
+  const sliceHeightPx = Math.max(1, Math.floor(usableHeight / scale));
+  const sourceCtx = canvas.getContext('2d');
+
+  let renderedPx = 0;
+  let first = true;
+  while(renderedPx < canvas.height){
+    let thisSliceHeightPx = Math.min(sliceHeightPx, canvas.height - renderedPx);
+    const isLastPage = renderedPx + thisSliceHeightPx >= canvas.height;
+    if(!isLastPage){
+      // Not the last page — nudge the break up to the nearest gap between
+      // lines/paragraphs so text is never sliced through mid-line. Never
+      // shrink a page by more than ~40% while searching for that gap.
+      const idealBreakY = renderedPx + thisSliceHeightPx;
+      const minBreakY = renderedPx + Math.floor(thisSliceHeightPx * 0.6);
+      const safeY = findSafeBreakY(canvas, sourceCtx, idealBreakY, minBreakY);
+      if(safeY > renderedPx) thisSliceHeightPx = safeY - renderedPx;
+    }
+
+    // Cut this page's chunk out onto its own canvas so each page gets a
+    // clean, non-overlapping slice of the content.
+    const sliceCanvas = document.createElement('canvas');
+    sliceCanvas.width = canvas.width;
+    sliceCanvas.height = thisSliceHeightPx;
+    const ctx = sliceCanvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, sliceCanvas.width, sliceCanvas.height);
+    ctx.drawImage(canvas, 0, renderedPx, canvas.width, thisSliceHeightPx, 0, 0, canvas.width, thisSliceHeightPx);
+
+    const imgData = sliceCanvas.toDataURL('image/png');
+    const imgHeightPt = thisSliceHeightPx * scale;
+
+    if(!first) pdf.addPage();
+    pdf.addImage(imgData, 'PNG', marginPt, marginPt, usableWidth, imgHeightPt, undefined, 'FAST');
+
+    renderedPx += thisSliceHeightPx;
+    first = false;
   }
   pdf.save(filename);
 }
@@ -1020,7 +1372,7 @@ function renderBuilderStepContent(){
 
 /* --- Templates step --- */
 function tplStepTemplates(){
-  const cats = ['Professional','Colorful','Photo','ATS-Friendly'];
+  const cats = ['Professional','Modern','Photo','ATS-Friendly'];
   return cats.map(cat=>`
     <h4 style="margin:18px 0 10px; font-size:.95rem;">${cat} Templates</h4>
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:8px;">
@@ -1384,7 +1736,7 @@ function bindReviewStep(){
   };
   $('#review-newdraft').onclick = () => confirmDialog('Start a new resume? Your current draft will be saved to your documents list first.', ()=>{
     const saved = loadLocal('cc_saved_resumes', []); saved.push(resume); saveLocal('cc_saved_resumes', saved);
-    resume = blankResume(); persistResume(); builderStep='templates'; renderBuilderPage(); toast('Started a new resume.', 'success');
+    resume = demoResume(); persistResume(); builderStep='templates'; renderBuilderPage(); toast('Started a new resume.', 'success');
   });
 }
 
